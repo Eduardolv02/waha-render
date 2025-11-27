@@ -1,4 +1,8 @@
 FROM devlikeapro/whatsapp-http-api:latest
-ENV WAHA_API_KEY=a1b2c3d4e5f6078901234567890abcdef
-ENV WAHA_DASHBOARD_USERNAME=admin
-ENV WAHA_DASHBOARD_PASSWORD=a1b2c3d4e5f6078901234567890abcdef
+
+# Necesario para Render
+ENV CHROME_ARGS="--no-sandbox --disable-setuid-sandbox --disable-dev-shm-usage"
+
+# Si quieres añadir valores por defecto:
+ENV WAHA_SESSION_DATA_PATH=/data
+ENV WAHA_SESSION_STORAGE=supabase
