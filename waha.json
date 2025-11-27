@@ -3,7 +3,7 @@
   "sessionStorage": "supabase",
   "supabase": {
     "url": "https://bozwvhpvrgumbzzjuuls.supabase.co",
-    "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvend2aHB2cmd1bWJ6emp1dWxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyMDcxNjUsImV4cCI6MjA3OTc4MzE2NX0.v1dZ_DEzS2JW-AgVlpFV7e9vm-9vUEWYymfoxzO8b70"
+    "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
   },
   "sessionDataPath": "/data",
   "printQR": true,
@@ -13,3 +13,4 @@
     "password": "a1b2c3d4e5f6078901234567890abcdef"
   }
 }
+
