@@ -3,7 +3,7 @@ services:
     name: waha
     env: docker
     dockerfilePath: ./Dockerfile
-    
+
     envVars:
       - key: WAHA_API_KEY
         value: a1b2c3d4e5f6078901234567890abcdef
@@ -14,11 +14,11 @@ services:
       - key: WAHA_DASHBOARD_PASSWORD
         value: a1b2c3d4e5f6078901234567890abcdef
 
-      # Chromium flags (obligatorio)
+      # Chromium flags
       - key: CHROME_ARGS
-        value: --no-sandbox --disable-gpu --disable-dev-shm-usage
+        value: --no-sandbox --disable-gpu --disable-dev-shm-usage --single-process --no-zygote --renderer-process-limit=1
 
-      # --- SUPABASE STORAGE ---
+      # SUPABASE CONFIG
       - key: WAHA_SESSION_STORAGE
         value: supabase
 
@@ -28,6 +28,8 @@ services:
       - key: WAHA_SUPABASE_KEY
         value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ...
 
-      # Local temp path before upload
+      - key: SUPABASE_DATABASE_URL
+        value: postgresql://postgres:m7Y5MXfeXbls5gZR@db.bozwvhpvrgumbzzjuuls.supabase.co:5432/postgres
+
       - key: WAHA_SESSION_DATA_PATH
         value: /data
