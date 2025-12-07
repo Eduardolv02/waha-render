@@ -1,16 +1,27 @@
 {
-  "apiKey": "a1b2c3d4e5f6078901234567890abcdef",
-  "sessionStorage": "supabase",
-  "supabase": {
-    "url": "https://bozwvhpvrgumbzzjuuls.supabase.co",
-    "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  "sessionStorage": {
+    "type": "supabase",
+    "url": "https://${SUPABASE_PROJECT_ID}.supabase.co",
+    "key": "${SUPABASE_SERVICE_ROLE_KEY}",
+    "options": {
+      "bucket": "waha",
+      "path": "sessions"
+    }
   },
-  "sessionDataPath": "/data",
-  "printQR": true,
-  "dashboard": {
-    "enabled": true,
-    "username": "admin",
-    "password": "a1b2c3d4e5f6078901234567890abcdef"
+  "database": {
+    "type": "postgres",
+    "url": "${SUPABASE_DATABASE_URL}"
+  },
+  "logLevel": "info",
+  "browser": {
+    "type": "playwright",
+    "channel": "chromium",
+    "args": [
+      "--disable-dev-shm-usage",
+      "--no-sandbox",
+      "--single-process",
+      "--no-zygote",
+      "--renderer-process-limit=1"
+    ]
   }
 }
-
