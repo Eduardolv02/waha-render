@@ -1,11 +1,12 @@
 FROM devlikeapro/whatsapp-http-api:latest
-# Crear carpeta temporal (no persistente en Render)
+
+# Crear carpeta temporal (Render no la persiste)
 RUN mkdir -p /data
 
-# Reducir memoria Node para evitar OOM
+# Limitar memoria Node
 ENV NODE_OPTIONS="--max-old-space-size=128"
 
-# Flags de chromium para entornos low-memory como Render Free
+# Flags de Chromium para 512 MB RAM
 ENV CHROME_ARGS="\
   --no-sandbox \
   --disable-gpu \
@@ -29,7 +30,7 @@ ENV CHROME_ARGS="\
 ENV WAHA_SESSION_STORAGE=supabase
 ENV WAHA_SESSION_DATA_PATH=/data
 
-# Copiar waha.json
+# Copiar configuración
 COPY waha.json /app/waha.json
 
 # Ejecutar WAHA correctamente
