@@ -1,4 +1,4 @@
-FROM devlikeapro/whatsapp-http-api:playwright
+FROM devlikeapro/whatsapp-http-api:latest
 
 # Crear carpeta (Render no la persiste, pero se usa como temp)
 RUN mkdir -p /data
