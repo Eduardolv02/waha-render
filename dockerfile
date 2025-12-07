@@ -1,12 +1,11 @@
 FROM devlikeapro/whatsapp-http-api:latest
-
-# Crear carpeta (Render no la persiste, pero se usa como temp)
+# Crear carpeta para almacenamiento temporal
 RUN mkdir -p /data
 
 # Reducir uso de memoria Node
 ENV NODE_OPTIONS="--max-old-space-size=128"
 
-# Flags críticos para Chromium + Render
+# Flags críticos para Chromium en Render
 ENV CHROME_ARGS="\
   --no-sandbox \
   --single-process \
@@ -15,17 +14,18 @@ ENV CHROME_ARGS="\
   --disable-gpu \
   --renderer-process-limit=1 \
   --disable-software-rasterizer \
-  --disable-background-networking \
   --disable-default-apps \
   --disable-sync \
-  --disable-extensions \
-  --memory-pressure-off"
+  --disable-background-networking \
+  --disable-extensions"
 
-# Configuración WAHA + Supabase
+# Configuración WAHA
 ENV WAHA_SESSION_STORAGE=supabase
 ENV WAHA_SESSION_DATA_PATH=/data
 
-# Copiar config
+# Copiar configuración
 COPY waha.json /app/waha.json
 
-CMD ["server"]
+# Arrancar WAHA
+ENTRYPOINT ["waha"]
+CMD ["start"]
