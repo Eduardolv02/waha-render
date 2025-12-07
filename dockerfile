@@ -1,4 +1,4 @@
-FROM devlikeapro/whatsapp-http-api:latest-slim
+FROM devlikeapro/whatsapp-http-api:playwright
 
 # Crear carpeta (Render no la persiste, pero se usa como temp)
 RUN mkdir -p /data
@@ -11,21 +11,17 @@ ENV CHROME_ARGS="\
   --no-sandbox \
   --single-process \
   --no-zygote \
-  --disable-gpu \
   --disable-dev-shm-usage \
+  --disable-gpu \
+  --renderer-process-limit=1 \
   --disable-software-rasterizer \
   --disable-background-networking \
   --disable-default-apps \
   --disable-sync \
   --disable-extensions \
-  --renderer-process-limit=1 \
   --memory-pressure-off"
 
-# Forzar WAHA a usar el navegador más liviano
-ENV WAHA_BROWSER=playwright
-ENV WAHA_BROWSER_CHANNEL=chromium
-
-# Guardar la sesión en Supabase sí o sí
+# Configuración WAHA + Supabase
 ENV WAHA_SESSION_STORAGE=supabase
 ENV WAHA_SESSION_DATA_PATH=/data
 
