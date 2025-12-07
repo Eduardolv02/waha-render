@@ -1,8 +1,8 @@
 {
   "sessionStorage": {
     "type": "supabase",
-    "url": "${WAHA_SUPABASE_URL}",
-    "key": "${WAHA_SUPABASE_KEY}",
+    "url": "",
+    "key": "",
     "options": {
       "bucket": "waha",
       "path": "sessions"
@@ -10,7 +10,7 @@
   },
   "database": {
     "type": "postgres",
-    "url": "${SUPABASE_DATABASE_URL}"
+    "url": ""
   },
   "logLevel": "info",
   "browser": {
