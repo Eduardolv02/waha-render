@@ -1,5 +1,4 @@
-FROM devlikeapro/whatsapp-http-api:puppeteer
-
+FROM devlikeapro/whatsapp-http-api:latest
 # Crear carpeta temporal (no persistente en Render)
 RUN mkdir -p /data
 
