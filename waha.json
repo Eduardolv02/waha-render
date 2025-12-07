@@ -1,8 +1,8 @@
 {
   "sessionStorage": {
     "type": "supabase",
-    "url": "https://${SUPABASE_PROJECT_ID}.supabase.co",
-    "key": "${SUPABASE_SERVICE_ROLE_KEY}",
+    "url": "${WAHA_SUPABASE_URL}",
+    "key": "${WAHA_SUPABASE_KEY}",
     "options": {
       "bucket": "waha",
       "path": "sessions"
@@ -17,10 +17,11 @@
     "type": "playwright",
     "channel": "chromium",
     "args": [
-      "--disable-dev-shm-usage",
       "--no-sandbox",
+      "--disable-dev-shm-usage",
       "--single-process",
       "--no-zygote",
+      "--disable-gpu",
       "--renderer-process-limit=1"
     ]
   }
